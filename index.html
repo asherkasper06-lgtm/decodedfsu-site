@@ -67,18 +67,18 @@
       transform: scale(1.05);
     }
 
-    /* Slide-out section */
+    /* Slide-out infographic container */
     .infographic-container {
       max-width: 524px;
       margin: 0 auto;
       overflow: hidden;
       max-height: 0;
-      transition: max-height 0.8s ease, opacity 0.8s ease;
+      transition: all 0.8s ease;
       opacity: 0;
     }
 
     .infographic-container.active {
-      max-height: 1306px; /* matches image height */
+      max-height: 2000px; /* plenty of room for your full image */
       opacity: 1;
       margin-top: 2rem;
     }
@@ -132,4 +132,23 @@
   </div>
 
   <footer>
-    <p>Propaganda Awareness for Students • Not Affili
+    <p>Propaganda Awareness for Students • Not Affiliated with FSU</p>
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('toggleInfographic');
+    const infographicContainer = document.getElementById('infographicContainer');
+    let isVisible = false;
+
+    toggleButton.addEventListener('click', () => {
+      isVisible = !isVisible;
+      infographicContainer.classList.toggle('active', isVisible);
+      toggleButton.textContent = isVisible ? 'Hide Infographic' : 'View Infographic';
+      if (isVisible) {
+        infographicContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+
+</body>
+</html>
