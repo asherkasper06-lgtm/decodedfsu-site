@@ -12,6 +12,7 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     header {
@@ -28,27 +29,21 @@
     p {
       color: #ccc;
       font-size: 1.1rem;
-      margin-top: 0.2rem;
+      max-width: 700px;
+      margin: 1rem auto;
+      line-height: 1.6;
     }
 
-    .image-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      margin-bottom: 3rem;
-    }
-
-    img {
+    .poster {
       width: 90%;
-      max-width: 800px;
-      height: auto;
+      max-width: 700px;
       border-radius: 12px;
       border: 2px solid #222;
       box-shadow: 0px 0px 20px rgba(255, 204, 51, 0.2);
+      margin-bottom: 2rem;
     }
 
-    .insta-link {
+    .button {
       display: inline-block;
       background-color: #ffcc33;
       color: #0a0a0a;
@@ -58,12 +53,38 @@
       padding: 0.8rem 2rem;
       border-radius: 6px;
       transition: all 0.3s ease;
+      margin: 1rem;
+      cursor: pointer;
     }
 
-    .insta-link:hover {
+    .button:hover {
       background-color: #fff;
       color: #000;
       transform: scale(1.05);
+    }
+
+    /* Slide-out section */
+    .infographic-container {
+      max-width: 900px;
+      margin: 0 auto;
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.8s ease, opacity 0.8s ease;
+      opacity: 0;
+    }
+
+    .infographic-container.active {
+      max-height: 1500px; /* Adjust if needed */
+      opacity: 1;
+      margin-top: 2rem;
+    }
+
+    .infographic-container img {
+      width: 95%;
+      max-width: 800px;
+      border-radius: 12px;
+      border: 2px solid #222;
+      box-shadow: 0px 0px 20px rgba(255, 204, 51, 0.2);
     }
 
     footer {
@@ -85,21 +106,45 @@
     <p>Decode Before You Share</p>
   </header>
 
-  <div class="image-section">
-    <!-- Poster -->
-    <img src="Decoding Information Before Sharing.png" alt="Signal & Sense Poster">
+  <!-- Poster -->
+  <img src="Decoding Information Before Sharing.png" alt="Signal & Sense Poster" class="poster">
 
-    <!-- Infographic -->
+  <!-- Description -->
+  <p>
+    <strong>Signal & Sense: Decode Before You Share</strong> is a student-led campaign on propaganda awareness. 
+    It teaches college students how to recognize manipulation tactics online and think critically before resharing posts.
+    The goal is to make media literacy fast, accessible, and part of everyday scrolling habits.
+  </p>
+
+  <!-- Buttons -->
+  <button class="button" id="toggleInfographic">View Infographic</button>
+  <a href="https://www.instagram.com/decodedfsu?igsh=MXJvaTBuYngyOXl3OQ%3D%3D&utm_source=qr" target="_blank" class="button">
+    Follow @DecodedFSU
+  </a>
+
+  <!-- Slide-out Infographic -->
+  <div id="infographicContainer" class="infographic-container">
     <img src="infographic.png" alt="Signal & Sense Infographic">
   </div>
-
-  <a class="insta-link" href="https://www.instagram.com/decodedfsu?igsh=MXJvaTBuYngyOXl3OQ%3D%3D&utm_source=qr" target="_blank">
-    Follow @DecodedFSU on Instagram
-  </a>
 
   <footer>
     <p>Propaganda Awareness for Students • Not Affiliated with FSU</p>
   </footer>
+
+  <script>
+    const toggleButton = document.getElementById('toggleInfographic');
+    const infographicContainer = document.getElementById('infographicContainer');
+    let isVisible = false;
+
+    toggleButton.addEventListener('click', () => {
+      isVisible = !isVisible;
+      infographicContainer.classList.toggle('active', isVisible);
+      toggleButton.textContent = isVisible ? 'Hide Infographic' : 'View Infographic';
+      if (isVisible) {
+        infographicContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
 
 </body>
 </html>
