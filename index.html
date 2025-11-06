@@ -8,65 +8,98 @@
     body {
       background-color: #0a0a0a;
       color: #fff;
-      font-family: 'Helvetica Neue', sans-serif;
+      font-family: "Helvetica Neue", sans-serif;
       text-align: center;
       margin: 0;
       padding: 0;
     }
-    h1 {
-      font-size: 2.5rem;
+
+    header {
       margin-top: 2rem;
-      color: #ffcc33;
+      margin-bottom: 2rem;
     }
+
+    h1 {
+      font-size: 2.3rem;
+      color: #ffcc33;
+      margin-bottom: 0.3rem;
+    }
+
     p {
       color: #ccc;
-      max-width: 600px;
-      margin: 1rem auto 2rem;
       font-size: 1.1rem;
+      margin-top: 0.2rem;
     }
-    .media {
-      max-width: 90%;
-      margin: 0 auto 2rem;
-      border-radius: 10px;
-    }
-    .qr {
+
+    .image-section {
       display: flex;
-      justify-content: center;
-      gap: 3rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
       margin-bottom: 3rem;
     }
-    .qr img {
-      width: 160px;
-      border-radius: 10px;
-      border: 2px solid #ffcc33;
+
+    img {
+      width: 90%;
+      max-width: 800px;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid #222;
+      box-shadow: 0px 0px 20px rgba(255, 204, 51, 0.2);
     }
-    a {
-      color: #ffcc33;
-      text-decoration: none;
+
+    .insta-link {
+      display: inline-block;
+      background-color: #ffcc33;
+      color: #0a0a0a;
       font-weight: bold;
+      font-size: 1.1rem;
+      text-decoration: none;
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .insta-link:hover {
+      background-color: #fff;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: #111;
+      padding: 2rem 0;
+      margin-top: 4rem;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <h1>Signal & Sense</h1>
-  <p>Decode Before You Share — a student campaign on propaganda awareness.</p>
 
-  <img src="infographic.png" alt="Infographic" class="media">
-  <img src="poster.png" alt="Poster" class="media">
+  <header>
+    <h1>Signal & Sense</h1>
+    <p>Decode Before You Share</p>
+  </header>
 
-  <div class="qr">
-    <div>
-      <h3>Instagram</h3>
-      <img src="qr_instagram.png" alt="Instagram QR">
-    </div>
-    <div>
-      <h3>Infographic Page</h3>
-      <img src="qr_infographic.png" alt="Infographic QR">
-    </div>
+  <div class="image-section">
+    <!-- Poster -->
+    <img src="Decoding Information Before Sharing.png" alt="Signal & Sense Poster">
+
+    <!-- Infographic -->
+    <img src="infographic.png" alt="Signal & Sense Infographic">
   </div>
 
-  <p>Follow <a href="https://instagram.com/decodedfsu">@DecodedFSU</a> for more.</p>
-  <p><small>Not affiliated with FSU.</small></p>
+  <a class="insta-link" href="https://www.instagram.com/decodedfsu?igsh=MXJvaTBuYngyOXl3OQ%3D%3D&utm_source=qr" target="_blank">
+    Follow @DecodedFSU on Instagram
+  </a>
+
+  <footer>
+    <p>Propaganda Awareness for Students • Not Affiliated with FSU</p>
+  </footer>
+
 </body>
 </html>
